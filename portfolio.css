@@ -211,6 +211,7 @@ input[type='checkbox']:active ~ label {
     text-align: center;
     min-height: 90dvh;
     top: -100px;
+    width: fit-content;
 }
 
 /* no es responsiv */
@@ -229,7 +230,7 @@ input[type='checkbox']:active ~ label {
 
 .linea {
     height: 3px;
-    width: 85%;
+    width: 100%;
     background-color: var(--text-color);
 }
 
@@ -670,14 +671,9 @@ h1 {
 
     /* main */
     .main__typewriter-container {
-        max-width: 80%;
         min-height: 20dvh !important; /* Sobrescribe el min-height original */
         height: auto; /* Opcional, permite que se ajuste al contenido si es necesario */
         top: 0; /* Elimina el negativo que no tenía efecto */
-    }
-
-    .linea {
-        width: 100%;
     }
 
     .text {
