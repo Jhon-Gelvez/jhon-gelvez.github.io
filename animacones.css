@@ -1,0 +1,96 @@
+/* animacion escribir */
+@keyframes typewriten {
+    0% {
+        width: 0;
+    }
+    25% {
+        width: 25%;
+    } /* Jhon<espacio> */
+    50% {
+        width: 50%;
+    } /* Jairo<espacio> */
+    75% {
+        width: 75%;
+    } /* Gelvez<espacio> */
+    100% {
+        width: 100%;
+    } /* Gomez */
+}
+
+/* animacion de cambio de color parpadeante */
+@keyframes rgb-shift {
+    0% {
+        box-shadow: 0 0 20px rgba(255, 0, 0, 0.4);
+        border: 2px solid rgba(255, 0, 0, 0.7);
+    }
+    25% {
+        box-shadow: 0 0 20px rgba(255, 165, 0, 0.4);
+        border: 2px solid rgba(255, 165, 0, 0.7);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(0, 255, 0, 0.4);
+        border: 2px solid rgba(0, 255, 0, 0.7);
+    }
+    75% {
+        box-shadow: 0 0 20px rgba(0, 0, 255, 0.4);
+        border: 2px solid rgba(0, 0, 255, 0.7);
+    }
+    100% {
+        box-shadow: 0 0 20px rgba(255, 0, 255, 0.4);
+        border: 2px solid rgba(255, 0, 255, 0.7);
+    }
+}
+
+/* animacion borde led */
+@keyframes rgb-shift {
+    0% {
+        box-shadow: 0 0 20px rgba(255, 0, 0, 0.4);
+        border: 2px solid rgba(255, 0, 0, 0.7);
+    }
+    25% {
+        box-shadow: 0 0 20px rgba(255, 165, 0, 0.4);
+        border: 2px solid rgba(255, 165, 0, 0.7);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(0, 255, 0, 0.4);
+        border: 2px solid rgba(0, 255, 0, 0.7);
+    }
+    75% {
+        box-shadow: 0 0 20px rgba(0, 0, 255, 0.4);
+        border: 2px solid rgba(0, 0, 255, 0.7);
+    }
+    100% {
+        box-shadow: 0 0 20px rgba(255, 0, 255, 0.4);
+        border: 2px solid rgba(255, 0, 255, 0.7);
+    }
+}
+
+/* animacion rgb */
+
+@keyframes girar {
+    0% {
+        --angulo: 0deg;
+    }
+    100% {
+        --angulo: 360deg;
+    }
+}
+
+/* bombra rgb */
+@keyframes sombra-rgb {
+    0% {
+        box-shadow: 0 0 25px rgba(255, 0, 0, 0.9); /* Rojo fuerte */
+    }
+    25% {
+        box-shadow: 0 0 25px rgba(0, 255, 0, 0.9); /* Verde neón */
+    }
+    50% {
+        box-shadow: 0 0 25px rgba(0, 255, 255, 0.9); /* Cian brillante */
+    }
+    75% {
+        box-shadow: 0 0 25px rgba(0, 0, 255, 0.9); /* Azul eléctrico */
+    }
+    100% {
+        box-shadow: 0 0 25px rgba(255, 0, 255, 0.9); /* Fucsia */
+    }
+}
