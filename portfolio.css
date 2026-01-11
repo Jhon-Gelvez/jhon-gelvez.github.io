@@ -255,6 +255,12 @@ input[type='checkbox']:active ~ label {
     padding: 4px;
 }
 
+@media screen and (width >= 40rem) {
+    .secundary-text {
+        font-size: 1.2rem;
+    }
+}
+
 /* ---- MAIN ENDS ----*/
 
 /* ---- ASIDE SECTION ----*/
@@ -316,6 +322,7 @@ h1 {
 
 .project__text {
     grid-area: text;
+    overflow-wrap: break-word
 }
 
 .project__img-container {
