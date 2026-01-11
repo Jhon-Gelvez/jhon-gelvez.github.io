@@ -45,13 +45,18 @@ body {
 }
 
 .header__nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-left: auto;
+
 }
 
 .header__ul {
     list-style: none;
     display: flex;
     justify-content: end;
+    margin: 0;
 }
 
 .header__li {
@@ -64,10 +69,22 @@ body {
     color: inherit; /* Hereda el color del texto del padre (opcional) */
 }
 
+.header__img  {
+display: flex;
+    width: fit-content;
+    justify-content: center;
+    align-items: center;
+}
+
 .header__img img {
-    width: 4.375rem;
-    height: auto;
+    width: 2rem;
     background-size: cover;
+}
+
+@media screen and (width >= 40rem) {
+    .header__img img {
+        width: 4rem;
+    }
 }
 
 /* ---- HEADER ENDS ----*/
