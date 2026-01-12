@@ -64,8 +64,15 @@ body {
 }
 
 .header__a {
+    font-size: 0.8rem;
     text-decoration: none; /* Elimina el subrayado */
     color: inherit; /* Hereda el color del texto del padre (opcional) */
+}
+
+@media screen and (width >= 40rem) {
+    .header__a {
+        font-size: 1rem;
+    }
 }
 
 .header__img {
@@ -113,13 +120,13 @@ body {
 }
 
 .sidebar:has(input[type='checkbox']:checked) {
-    width: 8.5rem
+    width: 8.5rem;
 }
 
 @media screen and (width >= 40rem) {
     .sidebar:has(input[type='checkbox']:checked) {
-    width: 9rem;
-}
+        width: 9rem;
+    }
 }
 
 /* cuando se abre width auto */
@@ -245,16 +252,16 @@ input[type='checkbox']:active ~ label {
 }
 
 .material-icons.md-18 {
-    font-size: 18px;
+    font-size: 1.125rem; /* 18px / 16 */
 }
 .material-icons.md-24 {
-    font-size: 24px;
+    font-size: 1.5rem; /* 24px / 16 */
 }
 .material-icons.md-36 {
-    font-size: 36px;
+    font-size: 2.25rem; /* 36px / 16 */
 }
 .material-icons.md-48 {
-    font-size: 48px;
+    font-size: 3rem; /* 48px / 16 */
 }
 
 /* ----SIDEBAR ENDS ----*/
@@ -269,8 +276,9 @@ input[type='checkbox']:active ~ label {
     margin: auto;
     text-align: center;
     min-height: 60dvh;
-    top: -100px;
+    max-width: 70dvw;
     width: fit-content;
+    top: -100px;
 }
 
 /* no es responsiv */
@@ -279,7 +287,7 @@ input[type='checkbox']:active ~ label {
     white-space: nowrap;
     margin: 0 auto;
     display: inline-block;
-    font-size: 3rem;
+    font-size: 4dvw;
     animation: typewriten 4s both steps(19);
     overflow: hidden;
     position: relative;
@@ -294,14 +302,8 @@ input[type='checkbox']:active ~ label {
 }
 
 .secundary-text {
-    font-size: 0.8rem;
+    font-size: 1.7dvw;
     padding: 4px;
-}
-
-@media screen and (width >= 40rem) {
-    .secundary-text {
-        font-size: 1.2rem;
-    }
 }
 
 /* ---- MAIN ENDS ----*/
@@ -712,7 +714,7 @@ input[type='checkbox']:active ~ label {
 
 /* ----QUERIES---- */
 
-@media screen and (max-width: 480px) {
+@media screen and (width <= 480px) {
     /* header */
     .section__header {
         box-shadow: 2px 0 10px var(--shadow-light);
@@ -727,14 +729,6 @@ input[type='checkbox']:active ~ label {
         min-height: 20dvh !important; /* Sobrescribe el min-height original */
         height: auto; /* Opcional, permite que se ajuste al contenido si es necesario */
         top: 0; /* Elimina el negativo que no tenía efecto */
-    }
-
-    .text {
-        font-size: 1.5rem;
-    }
-    .secundary-text {
-        font-size: 0.8rem;
-        padding: 4px;
     }
 
     .sidebar__form .material-icons {
@@ -774,7 +768,7 @@ input[type='checkbox']:active ~ label {
     }
 }
 
-@media screen and (max-width: 360px) {
+@media screen and (max-width: 375px) {
     /* header */
     .header__a {
         font-size: 0.8rem;
@@ -783,14 +777,5 @@ input[type='checkbox']:active ~ label {
         width: 50px;
         height: auto;
         background-size: cover;
-    }
-    /* main */
-
-    .text {
-        font-size: 1.1rem;
-    }
-    .secundary-text {
-        font-size: 0.8rem;
-        text-wrap: balance;
     }
 }
