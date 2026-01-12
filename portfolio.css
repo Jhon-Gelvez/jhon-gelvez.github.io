@@ -92,16 +92,19 @@ body {
 
 .sidebar {
     user-select: none;
-    background-color: transparent;
     position: fixed;
-    width: clamp(60px, 20vw, 150px);
+    /* CAMBIO: Definimos el ancho inicial fijo para que pueda animar */
+    width: 60px; 
     font-size: clamp(1rem, 2.2vw, 1.1rem);
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start; /* CAMBIO: Mejor al inicio para el menú */
     align-items: center;
     font-family: inherit;
     z-index: 10;
+    /* CAMBIO: Agregamos la transición aquí */
+    transition: width 10s ease; 
+    overflow: hidden; /* Evita que el texto se desborde al cerrar */
 }
 
 input[type='checkbox'] {
@@ -114,38 +117,45 @@ input[type='checkbox'] ~ label {
 
 input[type='checkbox']:active ~ label {
     cursor: pointer;
-    transform: scale(0.95);
+    transform: scale(0.80);
 }
 
 .sidebar label {
+    transition: transform 0.2s;
     user-select: none;
 }
 
-.sidebar:has(input[type='checkbox']) {
-    width: fit-content;
-}
-
+/* CAMBIO: Cuando el menú está cerrado, ocultamos el texto sin usar display:none */
 .sidebar:has(input[type='checkbox']) :is(.sidebar__li .sidebar__a) {
-    display: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s;
+    white-space: nowrap; /* Evita que el texto se rompa en varias líneas */
 }
 
+/* CAMBIO: Cuando se marca el checkbox, el sidebar crece a un ancho fijo */
+.sidebar:has(input[type='checkbox']:checked) {
+    width: min-content; /* O el ancho que prefieras */
+}
+
+/* CAMBIO: Mostramos el texto suavemente */
 .sidebar:has(input[type='checkbox']:checked) :is(.sidebar__li .sidebar__a) {
-    display: block;
+    opacity: 1;
+    visibility: visible;
 }
 
 /* cuando se abre width auto */
-
-.sidebar:has(input[type='checkbox']:checked) :is(.sidebar__li) {
+/* .sidebar:has(input[type='checkbox']:checked) :is(.sidebar__li) {
     width: 100%;
     justify-content: flex-start;
     backdrop-filter: blur(2px);
     background-color: #0001;
-}
+} */
 
-.sidebar:has(input[type='checkbox']:checked) :is(.sidebar__ul) {
+/* .sidebar:has(input[type='checkbox']:checked) :is(.sidebar__ul) {
     background-color: transparent;
     width: auto;
-}
+} */
 
 .sidebar__form {
     display: flex;
@@ -160,7 +170,7 @@ input[type='checkbox']:active ~ label {
 
 .sidebar__nav {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     width: 100%;
 }
@@ -178,17 +188,17 @@ input[type='checkbox']:active ~ label {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    width: min-content;
     list-style: none;
     color: var(--light-color);
     border-radius: 0 36px 36px 0;
-    position: relative;
     padding-right: 6px;
     width: 100%;
-    transition: width 3s;
+    /* CAMBIO: Reducido el tiempo de 3s a algo más real para UI */
+    /* transition: width 0.4s, background-color 0.1s, transform 0.2s;  */
     margin: 2px 0 2px 0;
-    transition: background-color 0.1s;
 }
+
+
 
 @media (hover: hover) {
     .sidebar__li:hover {
@@ -200,6 +210,7 @@ input[type='checkbox']:active ~ label {
 .sidebar__li:active {
     background-color: var(--light-color) !important;
     color: var(--bg-color);
+    transform: scale(0.95);
 }
 
 .sidebar__li a {
@@ -214,20 +225,16 @@ input[type='checkbox']:active ~ label {
     padding: 12px;
     font-size: 2rem;
     -webkit-tap-highlight-color: transparent;
+    /* CAMBIO: Aseguramos que el icono siempre ocupe el mismo espacio */
+    min-width: 60px;
+    display: flex;
+    justify-content: center;
 }
 
-.material-icons.md-18 {
-    font-size: 18px;
-}
-.material-icons.md-24 {
-    font-size: 24px;
-}
-.material-icons.md-36 {
-    font-size: 36px;
-}
-.material-icons.md-48 {
-    font-size: 48px;
-}
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-24 { font-size: 24px; }
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px; }
 
 /* ----SIDEBAR ENDS ----*/
 
