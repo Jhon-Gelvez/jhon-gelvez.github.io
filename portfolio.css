@@ -94,7 +94,7 @@ body {
     user-select: none;
     position: fixed;
     /* CAMBIO: Definimos el ancho inicial fijo para que pueda animar */
-    width: 60px;
+    /* width: min-content; */
     font-size: clamp(1rem, 2.2vw, 1.1rem);
     display: flex;
     flex-direction: column;
@@ -102,14 +102,24 @@ body {
     align-items: center;
     font-family: inherit;
     z-index: 10;
-    /* CAMBIO: Agregamos la transición aquí */
-    transition: width 10s ease;
     overflow: hidden; /* Evita que el texto se desborde al cerrar */
 }
 
 /* CAMBIO: Cuando se marca el checkbox, el sidebar crece a un ancho fijo */
+
+.sidebar:has(input[type='checkbox']) {
+    width: 60px;
+    transition: width 0.3s;
+}
+
 .sidebar:has(input[type='checkbox']:checked) {
-    width: min-content; /* O el ancho que prefieras */
+    width: 8.5rem
+}
+
+@media screen and (width >= 40rem) {
+    .sidebar:has(input[type='checkbox']:checked) {
+    width: 9rem;
+}
 }
 
 /* cuando se abre width auto */
@@ -163,7 +173,7 @@ body {
     width: 100%;
     /* CAMBIO: Reducido el tiempo de 3s a algo más real para UI */
     /* transition: width 0.4s, background-color 0.1s, transform 0.2s;  */
-    margin: 2px 0 2px 0;
+    margin: 3px 0 3px 0;
 }
 
 @media (hover: hover) {
@@ -179,6 +189,11 @@ body {
     transform: scale(0.95);
 }
 
+.sidebar:has(input[type='checkbox']:checked) :is(.sidebar__li) {
+    backdrop-filter: blur(2px);
+    background-color: #0002;
+}
+
 .sidebar__li a {
     user-select: none;
     color: inherit;
@@ -186,18 +201,18 @@ body {
     -webkit-tap-highlight-color: transparent;
 }
 
-/* CAMBIO: Mostramos el texto suavemente */
-.sidebar:has(input[type='checkbox']:checked) :is(.sidebar__li .sidebar__a) {
-    opacity: 1;
-    visibility: visible;
-}
-
 /* CAMBIO: Cuando el menú está cerrado, ocultamos el texto sin usar display:none */
 .sidebar:has(input[type='checkbox']) :is(.sidebar__li .sidebar__a) {
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.4s ease-in-out, visibility 0.4s ease-in-out;
+    transition: opacity 0.2s linear, visibility 0.2s;
     white-space: nowrap; /* Evita que el texto se rompa en varias líneas */
+}
+
+/* CAMBIO: Mostramos el texto suavemente */
+.sidebar:has(input[type='checkbox']:checked) :is(.sidebar__li .sidebar__a) {
+    opacity: 1;
+    visibility: visible;
 }
 
 .sidebar__li span {
