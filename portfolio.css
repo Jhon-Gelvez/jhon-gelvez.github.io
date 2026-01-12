@@ -191,14 +191,17 @@ input[type='checkbox']:active ~ label {
 }
 
 .sidebar__li a {
+    user-select: none;
     color: inherit;
     text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .sidebar__li span {
     user-select: none;
     padding: 12px;
     font-size: 2rem;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .material-icons.md-18 {
@@ -276,7 +279,7 @@ input[type='checkbox']:active ~ label {
     min-height: 90dvh;
 }
 
-h1 {
+.linea--project h2 {
     display: flex;
     padding: 8px 12px;
     margin: 0;
