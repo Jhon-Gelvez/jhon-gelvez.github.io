@@ -140,7 +140,6 @@ input[type='checkbox']:active ~ label {
     justify-content: flex-start;
     backdrop-filter: blur(2px);
     background-color: #0001;
-    
 }
 
 .sidebar:has(input[type='checkbox']:checked) :is(.sidebar__ul) {
@@ -156,6 +155,7 @@ input[type='checkbox']:active ~ label {
     padding-top: 2rem;
     font-size: 2rem;
     margin-right: auto;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .sidebar__nav {
@@ -187,10 +187,18 @@ input[type='checkbox']:active ~ label {
     width: 100%;
     transition: width 3s;
     margin: 2px 0 2px 0;
+    transition: background-color 0.1s;
 }
 
-.sidebar__li:hover {
-    background-color: var(--light-color);
+@media (hover: hover) {
+    .sidebar__li:hover {
+        background-color: var(--light-color) !important;
+        color: var(--bg-color);
+    }
+}
+
+.sidebar__li:active {
+    background-color: var(--light-color) !important;
     color: var(--bg-color);
 }
 
@@ -329,7 +337,7 @@ input[type='checkbox']:active ~ label {
 
 .project__text {
     grid-area: text;
-    overflow-wrap: break-word
+    overflow-wrap: break-word;
 }
 
 .project__img-container {
@@ -684,19 +692,6 @@ input[type='checkbox']:active ~ label {
 
     .header__ul {
         margin-bottom: 0;
-    }
-    /* sidebar */
-    .sidebar__li {
-        background-color: transparent;
-    }
-
-    .sidebar__li:hover {
-        background-color: transparent;
-        color: var(--light-color);
-    }
-    .sidebar__li:active {
-        background-color: var(--light-color);
-        color: var(--bg-color);
     }
 
     /* main */
