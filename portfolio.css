@@ -138,6 +138,9 @@ input[type='checkbox']:active ~ label {
 .sidebar:has(input[type='checkbox']:checked) :is(.sidebar__li) {
     width: 100%;
     justify-content: flex-start;
+    backdrop-filter: blur(2px);
+    background-color: #0001;
+    
 }
 
 .sidebar:has(input[type='checkbox']:checked) :is(.sidebar__ul) {
@@ -183,6 +186,7 @@ input[type='checkbox']:active ~ label {
     padding-right: 6px;
     width: 100%;
     transition: width 3s;
+    margin: 2px 0 2px 0;
 }
 
 .sidebar__li:hover {
