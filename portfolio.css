@@ -94,7 +94,7 @@ body {
     user-select: none;
     position: fixed;
     /* CAMBIO: Definimos el ancho inicial fijo para que pueda animar */
-    width: 60px; 
+    width: 60px;
     font-size: clamp(1rem, 2.2vw, 1.1rem);
     display: flex;
     flex-direction: column;
@@ -103,45 +103,13 @@ body {
     font-family: inherit;
     z-index: 10;
     /* CAMBIO: Agregamos la transición aquí */
-    transition: width 10s ease; 
+    transition: width 10s ease;
     overflow: hidden; /* Evita que el texto se desborde al cerrar */
-}
-
-input[type='checkbox'] {
-    display: none;
-}
-
-input[type='checkbox'] ~ label {
-    cursor: pointer;
-}
-
-input[type='checkbox']:active ~ label {
-    cursor: pointer;
-    transform: scale(0.80);
-}
-
-.sidebar label {
-    transition: transform 0.2s;
-    user-select: none;
-}
-
-/* CAMBIO: Cuando el menú está cerrado, ocultamos el texto sin usar display:none */
-.sidebar:has(input[type='checkbox']) :is(.sidebar__li .sidebar__a) {
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.4s;
-    white-space: nowrap; /* Evita que el texto se rompa en varias líneas */
 }
 
 /* CAMBIO: Cuando se marca el checkbox, el sidebar crece a un ancho fijo */
 .sidebar:has(input[type='checkbox']:checked) {
     width: min-content; /* O el ancho que prefieras */
-}
-
-/* CAMBIO: Mostramos el texto suavemente */
-.sidebar:has(input[type='checkbox']:checked) :is(.sidebar__li .sidebar__a) {
-    opacity: 1;
-    visibility: visible;
 }
 
 /* cuando se abre width auto */
@@ -198,8 +166,6 @@ input[type='checkbox']:active ~ label {
     margin: 2px 0 2px 0;
 }
 
-
-
 @media (hover: hover) {
     .sidebar__li:hover {
         background-color: var(--light-color) !important;
@@ -220,6 +186,20 @@ input[type='checkbox']:active ~ label {
     -webkit-tap-highlight-color: transparent;
 }
 
+/* CAMBIO: Mostramos el texto suavemente */
+.sidebar:has(input[type='checkbox']:checked) :is(.sidebar__li .sidebar__a) {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* CAMBIO: Cuando el menú está cerrado, ocultamos el texto sin usar display:none */
+.sidebar:has(input[type='checkbox']) :is(.sidebar__li .sidebar__a) {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease-in-out, visibility 0.4s ease-in-out;
+    white-space: nowrap; /* Evita que el texto se rompa en varias líneas */
+}
+
 .sidebar__li span {
     user-select: none;
     padding: 12px;
@@ -231,10 +211,36 @@ input[type='checkbox']:active ~ label {
     justify-content: center;
 }
 
-.material-icons.md-18 { font-size: 18px; }
-.material-icons.md-24 { font-size: 24px; }
-.material-icons.md-36 { font-size: 36px; }
-.material-icons.md-48 { font-size: 48px; }
+input[type='checkbox'] {
+    display: none;
+}
+
+input[type='checkbox'] ~ label {
+    cursor: pointer;
+}
+
+input[type='checkbox']:active ~ label {
+    cursor: pointer;
+    transform: scale(0.8);
+}
+
+.sidebar label {
+    transition: transform 0.2s;
+    user-select: none;
+}
+
+.material-icons.md-18 {
+    font-size: 18px;
+}
+.material-icons.md-24 {
+    font-size: 24px;
+}
+.material-icons.md-36 {
+    font-size: 36px;
+}
+.material-icons.md-48 {
+    font-size: 48px;
+}
 
 /* ----SIDEBAR ENDS ----*/
 
