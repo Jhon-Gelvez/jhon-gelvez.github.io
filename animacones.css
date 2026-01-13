@@ -94,6 +94,13 @@
     );
     animation: girar 2s linear infinite;
 }
+
+/* esto le da el efecto de brillo */
+.linea--project::before {
+    filter: blur(24px);
+    opacity: 0.5;
+}
+
 /* animacion rgb */
 
 @keyframes girar {
