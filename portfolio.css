@@ -287,13 +287,15 @@ input[type='checkbox']:active ~ label {
     white-space: nowrap;
     margin: 0 auto;
     display: inline-block;
-    font-size: 4dvw;
+    font-size: clamp(1rem,5dvw,3rem);
+    /* font-size: 1rem; */
+    /* font-size: 5dvw; */
+    /* font-size: 3rem; */
+    /* 19 - 56 */
     animation: typewriten 4s both steps(19);
     overflow: hidden;
     position: relative;
 }
-
-/* no es responsive en resoluciones grandes */
 
 .linea {
     height: 3px;
@@ -302,7 +304,8 @@ input[type='checkbox']:active ~ label {
 }
 
 .secundary-text {
-    font-size: 1.7dvw;
+    /* font-size: 1.7dvw; */
+    font-size: clamp(0.6rem,3dvw,1.4rem);
     padding: 4px;
 }
 
@@ -726,7 +729,7 @@ input[type='checkbox']:active ~ label {
 
     /* main */
     .main__typewriter-container {
-        min-height: 20dvh !important; /* Sobrescribe el min-height original */
+        min-height: 20dvh ; /* Sobrescribe el min-height original */
         height: auto; /* Opcional, permite que se ajuste al contenido si es necesario */
         top: 0; /* Elimina el negativo que no tenía efecto */
     }
