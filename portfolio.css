@@ -226,7 +226,9 @@ body {
 .sidebar:has(input[type='checkbox']) :is(.sidebar__li .sidebar__a) {
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.2s linear, visibility 0.2s;
+    transition:
+        opacity 0.2s linear,
+        visibility 0.2s;
     white-space: nowrap; /* Evita que el texto se rompa en varias líneas */
 }
 
@@ -588,7 +590,7 @@ input[type='checkbox']:active ~ label {
     color: var(--text-color);
     background-color: transparent;
     width: 100%;
-    height: 30dvh;
+    margin-top: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -728,7 +730,11 @@ input[type='checkbox']:active ~ label {
 /* animacion sombra cascada */
 
 .button-submit:hover {
-    box-shadow: 0 0 5px #0f0, 0 0 25px #0f0, 0 0 50px #0f0, 0 0 100px #0f0;
+    box-shadow:
+        0 0 5px #0f0,
+        0 0 25px #0f0,
+        0 0 50px #0f0,
+        0 0 100px #0f0;
 }
 
 /* ----QUERIES---- */
@@ -773,9 +779,9 @@ input[type='checkbox']:active ~ label {
     }
 
     .linea--project::before {
-    filter: blur(15px);
-    opacity: 0.5;
-}
+        filter: blur(15px);
+        opacity: 0.5;
+    }
 
     /* section contact */
 
@@ -791,6 +797,16 @@ input[type='checkbox']:active ~ label {
 
     .form__input-container {
         width: auto;
+    }
+
+    /* FOOTER SECTION */
+
+    .footer__container p {
+        font-size: 0.8rem;
+    }
+
+    .footer__container a {
+        font-size: 0.8rem;
     }
 }
 
