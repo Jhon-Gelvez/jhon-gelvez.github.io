@@ -1,6 +1,5 @@
 /* TODO */
 /* button show more */
-/* acomodar el nombre */
 /* tamano del card */
 /*  */
 
@@ -455,16 +454,20 @@ input[type='checkbox']:active ~ label {
 .contact {
     user-select: none;
     display: grid;
-    width: clamp(300px, 45%, 600px);
-    height: clamp(50dvh, 60dvh, 80dvh);
+    width: 60dvw;
+
+    max-width: 400px ;
+    /* height: clamp(216px, 300px, 400px); */
+    height: auto;
     margin: auto;
     border: 2px solid var(--light-color);
     border-radius: 9px;
     place-items: center;
-    animation: sombra-rgb 4s infinite;
-    background-color: transparent;
+    background-color: var(--bg-color);
     margin-bottom: 24px;
     margin-top: 60px;
+    position: relative;
+    box-shadow: 0 0 40px #131313;
 }
 
 .contact__container {
@@ -482,7 +485,7 @@ input[type='checkbox']:active ~ label {
 .back {
     position: absolute;
     top: 0;
-    width: 100%;
+    width: auto;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -501,12 +504,20 @@ input[type='checkbox']:active ~ label {
     transform: perspective(2400px) rotateY(0deg);
 }
 
-.contact__container:hover .front {
+.contact__container .front {
     transform: perspective(2400px) rotateY(180deg);
 }
 
-.contact__container:hover .back {
+.contact__container .back {
     transform: perspective(2400px) rotateY(360deg);
+}
+
+.contact__container:hover .front {
+    transform: perspective(2400px) rotateY(360deg);
+}
+
+.contact__container:hover .back {
+    transform: perspective(2400px) rotateY(180deg);
 }
 
 .form {
@@ -523,16 +534,18 @@ input[type='checkbox']:active ~ label {
     display: flex; /* Modificado */
     flex-direction: column;
     width: 100%; /* Añadido */
-    margin: 10px 0; /* Añadido */
+}
+
+.form__mail-icon {
+    font-size: 10rem !important;
 }
 
 .form__tittle {
-    align-self: center; /* Modificado */
-    margin: 6px 0 0 0; /* Modificado */
-    font-size: 2.5rem;
-    letter-spacing: 3px;
-    text-align: center; /* Añadido */
-    width: 100%; /* Añadido */
+    margin: 0;
+    margin-bottom: 10px;
+    margin-top: 5px;
+    font-size: 2rem;
+    text-align: center;
 }
 
 .form__label {
@@ -540,6 +553,7 @@ input[type='checkbox']:active ~ label {
     margin-bottom: 5px; /* Añadido */
     color: inherit;
     font-family: var(--font-form);
+    width: 100%;
 }
 
 .form__input {
@@ -547,10 +561,11 @@ input[type='checkbox']:active ~ label {
     background-color: transparent;
     font-family: var(--font-form);
     color: inherit;
-    margin: 3px;
     border: none;
     border-bottom: 3px solid var(--border-color);
     border-radius: 2px;
+    width: 100%;
+    margin-bottom: 12px;
 }
 
 .form__input:focus-visible {
@@ -558,15 +573,17 @@ input[type='checkbox']:active ~ label {
 }
 
 .form__textarea {
+    display: block;
     font-family: var(--font-form);
     background-color: transparent;
     font-size: inherit;
     color: inherit;
-    margin: 3px;
     border: none;
     border-bottom: 3px solid var(--border-color);
     border-radius: 2px;
     resize: none;
+    field-sizing: content;
+    width: 100%;
 }
 
 .form__textarea:focus-visible {
@@ -581,6 +598,7 @@ input[type='checkbox']:active ~ label {
     background-color: rgba(0, 255, 0, 0.7);
     color: inherit;
     border-radius: 6px;
+    transition: box-shadow 0.5s;
     animation: stailing-shadow 4s infinite;
 }
 
@@ -708,23 +726,41 @@ input[type='checkbox']:active ~ label {
         --angulo: 360deg;
     }
 }
-/* bombra rgb */
+/* sombra rgb */
+
 @keyframes sombra-rgb {
     0% {
-        box-shadow: 0 0 25px rgba(255, 0, 0, 0.9); /* Rojo fuerte */
+        box-shadow: 0 0 25px #ff0000;
+    }
+    12.5% {
+        box-shadow: 0 0 25px #ff7300;
     }
     25% {
-        box-shadow: 0 0 25px rgba(0, 255, 0, 0.9); /* Verde neón */
+        box-shadow: 0 0 25px #fffb00;
+    }
+    37.5% {
+        box-shadow: 0 0 25px #48ff00;
     }
     50% {
-        box-shadow: 0 0 25px rgba(0, 255, 255, 0.9); /* Cian brillante */
+        box-shadow: 0 0 25px #00ffd5;
+    }
+    62.5% {
+        box-shadow: 0 0 25px #002bff;
     }
     75% {
-        box-shadow: 0 0 25px rgba(0, 0, 255, 0.9); /* Azul eléctrico */
+        box-shadow: 0 0 25px #7a00ff;
+    }
+    87.5% {
+        box-shadow: 0 0 25px #ff00c8;
     }
     100% {
-        box-shadow: 0 0 25px rgba(255, 0, 255, 0.9); /* Fucsia */
+        box-shadow: 0 0 25px #ff0000;
     }
+}
+
+/* Aplicación al elemento */
+.tu-clase {
+    animation: sombra-rgb 5s linear infinite;
 }
 
 /* animacion sombra cascada */
@@ -732,9 +768,9 @@ input[type='checkbox']:active ~ label {
 .button-submit:hover {
     box-shadow:
         0 0 5px #0f0,
+        0 0 15px #0f0,
         0 0 25px #0f0,
-        0 0 50px #0f0,
-        0 0 100px #0f0;
+        0 0 60px #0f0;
 }
 
 /* ----QUERIES---- */
@@ -781,22 +817,6 @@ input[type='checkbox']:active ~ label {
     .linea--project::before {
         filter: blur(15px);
         opacity: 0.5;
-    }
-
-    /* section contact */
-
-    .contact {
-        min-height: 40dvh;
-        max-height: 60dvh;
-        animation: sombra-rgb 4s infinite both;
-    }
-
-    .form__tittle {
-        width: auto;
-    }
-
-    .form__input-container {
-        width: auto;
     }
 
     /* FOOTER SECTION */

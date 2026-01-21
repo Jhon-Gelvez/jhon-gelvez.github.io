@@ -186,11 +186,9 @@
     <section class="contact" id="Contact">
         <div class="contact__container">
             <div class="front">
-                <span class="material-icons">mail</span>
-            </div>
-            <div class="back">
 
                 <!-- formulario de contacto -->
+
 
                 <h2 class="form__tittle">CONTACTO</h2>
                 <form class="form" action="">
@@ -210,9 +208,18 @@
                         </label>
                     </div>
                     <div class="form__input-container">
-                        <button class="button-submit" type="submit">Enviar</button>
+                        <button class="button-submit" type="submit" onclick="detenerEnvio(event)">Enviar</button>
                     </div>
+                    <script>
+                        function detenerEnvio(e) {
+                            e.preventDefault();
+                            alert("Formulario no enviado");
+                        }
+                    </script>
                 </form>
+            </div>
+            <div class="back">
+                <span class="material-icons form__mail-icon">mail</span>
             </div>
         </div>
     </section>
