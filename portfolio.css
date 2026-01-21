@@ -1,11 +1,6 @@
 /* TODO */
 /* button show more */
 
-/* FIX */
-/* el grid layout no es igual para todos los containers */
-/* margin bottom al footer */
-/* altura para version movil header */
-
 [id] {
     scroll-margin-top: 14dvh; /* Ajusta este valor a la altura exacta de tu header */
 }
