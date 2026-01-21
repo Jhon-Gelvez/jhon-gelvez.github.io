@@ -95,11 +95,11 @@ body {
 }
 
 .header__img img {
-    width: 2rem;
+    width: 3rem;
     background-size: cover;
 }
 
-@media screen and (width >= 40rem) {
+@media screen and (height >= 40rem) {
     .header__img img {
         width: 4rem;
     }
