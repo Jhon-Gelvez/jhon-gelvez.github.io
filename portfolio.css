@@ -1,11 +1,10 @@
 /* TODO */
 /* button show more */
-/* tamano del card */
-/*  */
 
 /* FIX */
 /* el grid layout no es igual para todos los containers */
 /* margin bottom al footer */
+/* altura para version movil header */
 
 [id] {
     scroll-margin-top: 14dvh; /* Ajusta este valor a la altura exacta de tu header */
@@ -367,7 +366,8 @@ input[type='checkbox']:active ~ label {
         'icons img'
         'button img';
     grid-template-columns: 1.5fr 1fr;
-    grid-template-rows: 1fr 3fr;
+    grid-template-rows: 1fr 3fr 1fr 1fr;
+    column-gap: 15px;
 }
 
 .project__container > p > a {
@@ -384,15 +384,22 @@ input[type='checkbox']:active ~ label {
 }
 
 .project__img-container {
-    grid-area: img;
-    max-width: 420px;
-    display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr;
+    grid-area: img;
+    max-width: 420px;
+    height: fit-content;
+    grid-row: 1/5;
+    display: grid;
+    place-items: center;
+    row-gap: 20px;
 }
 
 .project__img-container img {
     width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
 }
 
 .project__icons-container {
